@@ -1,0 +1,344 @@
+
+<!-- ===================================================== -->
+<!-- 📁 admin.html -->
+<!-- PIPASTORE DASHBOARD FINAL -->
+<!-- COM NOVOS AJUSTES INTEGRADOS -->
+<!-- ===================================================== -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <!-- ===================================================== -->
+    <!-- CONFIGURAÇÕES BÁSICAS -->
+    <!-- ===================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PipaStore Admin</title>
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/media.css">
+
+    <!-- LIB PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+    <!-- ===================================================== -->
+    <!-- SIDEBAR -->
+    <!-- ===================================================== -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>PipaStore</h2>
+            <span>Dashboard Admin</span>
+        </div>
+
+        <nav>
+
+            <button onclick="showTab('dashboard')">🏠 Dashboard</button>
+            <button onclick="showTab('products')">📦 Produtos</button>
+            <button onclick="showTab('orders')">🛒 Pedidos</button>
+            <button onclick="showTab('reports')">📊 Relatórios</button>
+            <button onclick="showTab('coupons')">🎟️ Cupons</button>
+            <button onclick="showTab('faq')">❓ FAQ</button>
+            <button onclick="showTab('banners')">🖼️ Banners</button>
+            <button onclick="showTab('home')">🏠 Home</button>
+            <button onclick="showTab('settings')">⚙️ Configurações</button>
+
+        </nav>
+
+    </aside>
+
+    <!-- ===================================================== -->
+    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- ===================================================== -->
+    <main class="content">
+
+        <!-- ===================================================== -->
+        <!-- DASHBOARD -->
+        <!-- ===================================================== -->
+        <section id="dashboard" class="tab active">
+
+            <h1>Dashboard</h1>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Total Produtos</h3>
+                    <span id="dashboardProducts">0</span>
+                </div>
+
+                <div class="card">
+                    <h3>Pedidos Confirmados</h3>
+                    <span id="dashboardOrders">0</span>
+                </div>
+
+                <div class="card">
+                    <h3>Total Vendido</h3>
+                    <span id="dashboardSales">R$ 0</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- PRODUTOS -->
+        <!-- ===================================================== -->
+    
+<section id="products" class="tab">
+
+    <h1>Produtos</h1>
+
+    <!-- FORMULÁRIO -->
+    <div class="form-grid">
+
+        <div class="form-fields">
+
+            <label>Nome do Produto</label>
+            <input type="text" id="productName">
+
+            <label>Descrição</label>
+            <textarea id="productDescription"></textarea>
+
+            <label>URL da Imagem</label>
+            <input type="text" id="productImage" oninput="previewProductImage()">
+
+            <label>Preço</label>
+            <input type="number" id="productPrice">
+
+            <label>Preço Promocional</label>
+            <input type="number" id="productPromo">
+
+            <label>Estoque</label>
+            <input type="number" id="productStock">
+
+            <label>Categoria</label>
+            <select id="productCategory">
+                <option>Pipas</option>
+                <option>Linhas</option>
+                <option>Acessórios</option>
+            </select>
+
+        </div>
+
+        <button onclick="addProduct()">
+            ➕ Adicionar Produto
+        </button>
+
+    </div> 
+
+    <!-- LISTA DE PRODUTOS -->
+    <div id="productsList"></div>
+
+</section>
+
+        <!-- ===================================================== -->
+        <!-- PEDIDOS -->
+        <!-- ===================================================== -->
+        <section id="orders" class="tab">
+
+            <h1>Pedidos</h1>
+
+            <!-- FILTROS -->
+            <div class="orders-filters">
+
+                <button onclick="filterOrders('all')">Todos</button>
+                <button onclick="filterOrders('pending')">Pendentes</button>
+                <button onclick="filterOrders('paid')">Pagos</button>
+                <button onclick="filterOrders('shipping')">Enviados</button>
+                <button onclick="filterOrders('delivered')">Entregues</button>
+                <button onclick="filterOrders('cancelled')">Cancelados</button>
+
+            </div>
+
+            <div id="ordersList" class="list"></div>
+
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- RELATÓRIOS -->
+        <!-- ===================================================== -->
+        <section id="reports" class="tab">
+
+            <h1>Relatórios</h1>
+
+            <div class="cards">
+
+                <div class="card">
+                    <h3>Total Vendido</h3>
+                    <span id="salesValue">R$ 0</span>
+                </div>
+
+                <div class="card">
+                    <h3>Pedidos Confirmados</h3>
+                    <span id="confirmedOrdersValue">0</span>
+                </div>
+
+            </div>
+
+            <button class="pdf-btn" onclick="generateDailyPDF()">
+                📄 Exportar PDF
+            </button>
+
+            <div id="reportsList" class="list"></div>
+
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- CUPONS -->
+        <!-- ===================================================== -->
+        <section id="coupons" class="tab">
+
+            <h1>Cupons</h1>
+
+            <div class="form-grid">
+
+                <input type="text" id="couponCode" placeholder="Cupom">
+                <input type="number" id="couponDiscount" placeholder="% Desconto">
+
+                <input type="number" id="couponMinimum" placeholder="Valor mínimo">
+                <input type="number" id="couponLimit" placeholder="Limite de usos">
+                <input type="date" id="couponExpire">
+
+                <select id="couponType">
+                    <option value="percent">% Desconto</option>
+                    <option value="fixed">Valor Fixo</option>
+                </select>
+
+                <button onclick="addCoupon()">Criar Cupom</button>
+
+            </div>
+
+            <div id="couponList" class="list"></div>
+
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- FAQ -->
+        <!-- ===================================================== -->
+        <section id="faq" class="tab">
+
+            <h1>Dúvidas Frequentes</h1>
+
+            <div class="form-grid">
+
+                <input type="text" id="faqQuestion" placeholder="Pergunta">
+                <textarea id="faqAnswer" placeholder="Resposta"></textarea>
+
+                <button onclick="addFAQ()">Adicionar FAQ</button>
+
+            </div>
+
+            <div id="faqList" class="list"></div>
+
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- BANNERS -->
+        <!-- ===================================================== -->
+        <section id="banners" class="tab">
+
+            <h1>Banners</h1>
+
+            <div class="form-grid">
+
+                <input
+                    type="text"
+                    id="bannerTitle"
+                    placeholder="Título"
+                    oninput="previewBanner()"
+                >
+
+                <input
+                    type="text"
+                    id="bannerSubtitle"
+                    placeholder="Subtítulo"
+                    oninput="previewBanner()"
+                >
+
+                <input
+                    type="text"
+                    id="bannerImage"
+                    placeholder="URL da Imagem"
+                    oninput="previewBanner()"
+                >
+
+                <!-- PREVIEW BANNER -->
+                <div class="banner-preview">
+
+                    <img id="bannerPreviewImage" src="" alt="">
+
+                    <div class="banner-overlay">
+
+                        <h2 id="bannerPreviewTitle">Título</h2>
+                        <p id="bannerPreviewSubtitle">Subtítulo</p>
+
+                    </div>
+
+                </div>
+
+                <input type="color" id="bannerColor">
+
+                <button onclick="addBanner()">Adicionar Banner</button>
+
+            </div>
+
+            <div id="bannerList" class="list"></div>
+
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- HOME -->
+        <!-- ===================================================== -->
+        <section id="home" class="tab">
+
+            <h1>Home</h1>
+
+            <div class="form-grid">
+
+                <input type="text" id="homeTitle" placeholder="Nome da Página">
+                <input type="text" id="homeCover" placeholder="URL da Capa">
+                <input type="color" id="homeColor">
+
+                <button onclick="saveHome()">Salvar Home</button>
+
+            </div>
+
+        </section>
+
+        <!-- ===================================================== -->
+        <!-- CONFIGURAÇÕES -->
+        <!-- ===================================================== -->
+        <section id="settings" class="tab">
+
+            <h1>Configurações</h1>
+
+            <div class="form-grid">
+
+                <input type="text" id="storeName" placeholder="Nome Loja">
+                <input type="text" id="storeWhatsapp" placeholder="WhatsApp">
+                <input type="text" id="storeInstagram" placeholder="Instagram">
+                <input type="email" id="storeEmail" placeholder="E-mail">
+
+                <button onclick="saveSettings()">Salvar Configurações</button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ===================================================== -->
+    <!-- SCRIPT PRINCIPAL -->
+    <!-- ===================================================== -->
+    <script src="js/admin.js"></script>
+
+</body>
+</html>

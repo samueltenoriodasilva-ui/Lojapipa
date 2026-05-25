@@ -1,0 +1,217 @@
+    /* ===================================================== */
+    /* 🎨 VARIÁVEIS (TEMA RÁPIDO DE EDITAR)
+    /* ===================================================== */
+    :root {
+
+        --bg: #111111;
+        --card: #d6d2d2;
+
+        --primary: #0e0c0c;
+        --primary-dark: #476d44;
+
+        --success: #00c853;
+        --success-dark: #1a412d;
+
+        --text: #000000;
+        --muted: #000000;
+
+        --price: #252422;
+
+        --border: #100a2e;
+
+        --shadow: 0 6px 18px rgba(0,0,0,0.06);
+
+        --radius: 16px;
+
+        --font: Arial, sans-serif;
+    }
+
+    /* ===================================================== */
+    /* BASE
+    /* ===================================================== */
+    body {
+        margin: 0;
+        font-family: var(--font);
+        background: var(--bg);
+        color: var(--text);
+    }
+
+    .container {
+        max-width: 520px;
+        margin: auto;
+        padding: 16px;
+    }
+
+    /* ===================================================== */
+    /* HEADER
+    /* ===================================================== */
+    .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+        padding: 10px 4px;
+    }
+
+    /* ===================================================== */
+    /* CARD BASE
+    /* ===================================================== */
+    .card {
+        background: var(--card);
+        padding: 16px;
+        border-radius: var(--radius);
+        margin-top: 12px;
+        box-shadow: var(--shadow);
+    }
+
+    /* ===================================================== */
+    /* ITEM CARRINHO
+    /* ===================================================== */
+    .item {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+
+        background: var(--card);
+        padding: 12px;
+        border-radius: var(--radius);
+        margin-top: 12px;
+
+        box-shadow: var(--shadow);
+    }
+
+    .item img {
+        width: 72px;
+        height: 72px;
+        border-radius: 12px;
+        object-fit: cover;
+    }
+
+    .info {
+        flex: 1;
+    }
+
+    .price {
+        color: var(--price);
+        font-weight: bold;
+    }
+
+    /* ===================================================== */
+    /* QUANTIDADE
+    /* ===================================================== */
+    .qty {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 6px;
+    }
+
+    .qty button {
+        border: none;
+        background: #eef2ff;
+        padding: 6px 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .qty button:hover {
+        background: #dbe4ff;
+    }
+
+    /* ===================================================== */
+    /* INPUTS (MELHORADOS)
+    /* ===================================================== */
+    input {
+        width: 90%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        margin-top: 8px;
+        outline: none;
+        font-size: 14px;
+        transition: 0.2s;
+        background: #fff;
+    }
+
+    input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 4px rgba(0,123,255,0.12);
+    }
+
+    /* ===================================================== */
+    /* CUPOM
+    /* ===================================================== */
+    .row {
+        display: flex;
+        gap: 10px;
+    }
+
+    .row button {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.2s;
+        font-weight: bold;
+    }
+
+    .row button:hover {
+        background: var(--primary-dark);
+    }
+
+    /* ===================================================== */
+    /* TOTAL
+    /* ===================================================== */
+    .total h2 {
+        color: var(--price);
+    }
+
+    /* ===================================================== */
+    /* BOTÃO FINALIZAR
+    /* ===================================================== */
+    .buy-btn {
+        width: 100%;
+        margin-top: 15px;
+        padding: 15px;
+
+        border: none;
+        border-radius: var(--radius);
+
+        background: var(--success);
+        color: rgb(240, 236, 236);
+
+        font-size: 16px;
+        font-weight: bold;
+
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .buy-btn:hover {
+        background: var(--success-dark);
+    }
+
+    /* ===================================================== */
+    /* BOTÃO VOLTAR
+    /* ===================================================== */
+    .back-btn {
+        width: 100%;
+        margin-top: 10px;
+        padding: 12px;
+
+        border: none;
+        border-radius: var(--radius);
+
+        background: #64748b;
+        color: white;
+
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+    .back-btn:hover {
+        background: #475569;
+    }

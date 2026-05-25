@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <!-- ===================================================== -->
+    <!-- CONFIGURAÇÕES BÁSICAS DO SITE -->
+    <!-- ===================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TÍTULO DA ABA -->
+    <title>PipaStore</title>
+
+    <!-- ESTILOS CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+
+</head>
+
+<body>
+
+    <!-- ===================================================== -->
+    <!-- CABEÇALHO (HEADER FIXO) -->
+    <!-- ===================================================== -->
+    <header class="header">
+
+        <!-- LOGO DO SITE -->
+        <div class="logo">
+            🪁 PipaStore
+        </div>
+
+        <!-- BARRA DE BUSCA -->
+        <div class="search">
+
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Buscar produtos..."
+            >
+
+        </div>
+
+        <!-- 🛒 CARRINHO COM NOTIFICAÇÃO -->
+        <div class="cart" onclick="window.location.href='carrinho.html'">
+
+            <img src="fotos/carrinho.webp" class="cart-icon">
+
+            <!-- 🔴 BOLINHA DE NOTIFICAÇÃO -->
+            <span id="cartCount" class="cart-badge">
+                0
+            </span>
+
+        </div>
+
+    </header>
+
+    <!-- ===================================================== -->
+    <!-- BANNER / CARROSSEL DE IMAGENS -->
+    <!-- ===================================================== -->
+    <section class="carousel">
+
+        <img
+            id="banner"
+            src="/fotos/bannner.jpeg"
+            alt="Banner PipaStore"
+        >
+
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- MENU DE CATEGORIAS -->
+    <!-- ===================================================== -->
+    <nav class="categories">
+
+        <button onclick="filter('Todos')">
+            Todos
+        </button>
+
+        <button onclick="filter('Pipas')">
+            Pipas
+        </button>
+
+        <button onclick="filter('Linhas')">
+            Linhas
+        </button>
+
+        <button onclick="filter('Acessorios')">
+            Acessórios
+        </button>
+
+        <button onclick="filter('Diversos')">
+            Diversos
+        </button>
+
+    </nav>
+
+
+<!-- ===================================================== -->
+<!-- 🔥 PRODUTOS PROMOCIONAIS -->
+<!-- ===================================================== -->
+<section class="products-wrapper">
+
+    <h2 class="section-title">
+        
+    </h2>
+
+    <div class="product-grid" id="promoProducts">
+
+        <!-- Produtos em promoção -->
+
+    </div>
+
+</section>
+
+
+    <!-- ===================================================== -->
+<!-- 📦 PRODUTOS PRINCIPAIS -->
+<!-- ===================================================== -->
+<section class="products-wrapper">
+
+    <h2 class="section-title">
+        
+    </h2>
+
+    <div class="product-grid" id="productGrid">
+
+        <!-- Produtos renderizados via JS -->
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- ⚠️ ÚLTIMAS UNIDADES -->
+<!-- ===================================================== -->
+<section class="products-wrapper">
+
+    <h2 class="section-title">
+        ⚠️ Últimas Unidades
+    </h2>
+
+    <div class="product-grid" id="stockProducts">
+
+        <!-- Produtos baixo estoque -->
+
+    </div>
+
+</section>
+
+    <!-- ===================================================== -->
+    <!-- FAQ DINÂMICO -->
+    <!-- ===================================================== -->
+    <section class="faq-section">
+
+        <h2>
+            ! Dúvidas Frequentes !
+        </h2>
+
+        <div id="faqContainer">
+
+            <!-- FAQ vindo do admin -->
+
+        </div>
+
+    </section>
+
+    <!-- ===================================================== -->
+    <!-- RODAPÉ DO SITE -->
+    <!-- ===================================================== -->
+    <footer>
+
+        <!-- BOTÃO ADMIN -->
+        <button onclick="openAdmin()" class="admin-btn">
+
+            Admin
+
+        </button>
+
+
+        <!-- REDES SOCIAIS -->
+        <div class="social">
+
+            <a
+                id="whatsappLink"
+                href="#"
+                target="_blank"
+            >
+
+                WhatsApp
+
+            </a>
+
+            <a
+                id="instagramLink"
+                href="#"
+                target="_blank"
+            >
+
+                Instagram
+
+            </a>
+
+            <a href="#">
+
+                Facebook
+
+            </a>
+
+        </div>
+
+    </footer>
+
+    <!-- ===================================================== -->
+    <!-- MODAL DE LOGIN ADMIN -->
+    <!-- ===================================================== -->
+    <div id="adminModal" class="modal">
+
+        <div class="modal-content">
+
+            <h2>
+
+                Login Admin
+
+            </h2>
+
+            <!-- EMAIL -->
+            <input 
+                type="email" 
+                id="email" 
+                placeholder="Email"
+            >
+
+            <!-- SENHA -->
+            <input 
+                type="password" 
+                id="password" 
+                placeholder="Senha"
+            >
+
+            <!-- BOTÃO LOGIN -->
+            <button onclick="login()">
+
+                Entrar
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ===================================================== -->  
+    <!-- BOTÃO ADMIN DASHBOARD -->
+    <!-- ===================================================== -->
+    <button
+        class="admin-access-btn"
+        onclick="window.location.href='admin.html'"
+    >
+        Painel Administrativo
+
+    </button>
+
+    <!-- ===================================================== -->
+    <!-- JAVASCRIPT PRINCIPAL -->
+    <!-- ===================================================== -->
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

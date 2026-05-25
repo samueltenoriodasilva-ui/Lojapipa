@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <!-- ===================================================== -->
+    <!-- CONFIGURAÇÕES BÁSICAS -->
+    <!-- ===================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Carrinho</title>
+
+    <!-- ESTILOS -->
+    <link rel="stylesheet" href="css/cart.css">
+    <link rel="stylesheet" href="css/media.css">
+
+</head>
+
+<body>
+
+    <!-- ===================================================== -->
+    <!-- CONTAINER PRINCIPAL -->
+    <!-- ===================================================== -->
+    <div class="container">
+
+        <!-- ===================================================== -->
+        <!-- HEADER DO CARRINHO -->
+        <!-- ===================================================== -->
+        <div class="cart" onclick="window.location.href='carrinho.html'">
+
+            <!-- CONTADOR DO CARRINHO -->
+            <span id="cartCount"></span>
+
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- LISTA DE PRODUTOS NO CARRINHO -->
+        <!-- ===================================================== -->
+        <div id="cartContainer"></div>
+
+        <!-- ===================================================== -->
+        <!-- DADOS DO USUÁRIO -->
+        <!-- ===================================================== -->
+        <div class="card">
+
+            <h3>Seus dados (opcional)</h3>
+
+            <input id="name" placeholder="Seu nome">
+            <input id="phone" placeholder="Seu telefone (WhatsApp)">
+
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- CUPOM DE DESCONTO -->
+        <!-- ===================================================== -->
+        <div class="card row">
+
+            <input id="couponInput" placeholder="Código do cupom">
+
+            <button onclick="applyCoupon()">
+                Aplicar
+            </button>
+
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- TOTAL DO PEDIDO -->
+        <!-- ===================================================== -->
+        <div class="card total">
+
+            <p>Subtotal: <span id="subtotal">R$ 0,00</span></p>
+
+            <h2>Total: <span id="total">R$ 0,00</span></h2>
+
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- BOTÕES DE AÇÃO -->
+        <!-- ===================================================== -->
+
+        <!-- FINALIZAR COMPRA -->
+        <button class="buy-btn" onclick="checkoutWhatsApp()">
+            💚 Finalizar via WhatsApp
+        </button>
+
+        <!-- CONTINUAR COMPRANDO -->
+        <button class="back-btn" onclick="window.location.href='index.html'">
+            ← Continuar comprando
+        </button>
+
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- SCRIPT DO CARRINHO -->
+    <!-- ===================================================== -->
+    <script src="js/cart.js"></script>
+
+</body>
+
+</html>

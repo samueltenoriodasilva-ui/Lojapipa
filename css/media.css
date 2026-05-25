@@ -1,0 +1,194 @@
+/* ===================================================== */
+/* RESPONSIVIDADE */
+/* ===================================================== */
+@media(min-width:768px){
+
+    /* GRID PRODUTOS */
+    .product-grid{
+
+        grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+        gap:20px;
+
+        padding:20px;
+    }
+
+    /* BANNER */
+    .carousel img{
+    height:350px;
+    }
+
+    /* PESQUISA */
+    .search input{
+        width:260px;
+    }
+
+}
+
+/* ===================================================== */
+/* TELAS GRANDES */
+/* ===================================================== */
+@media(min-width:1200px){
+
+    .product-grid{
+
+        grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+}
+
+/* =====================================================
+   RESPONSIVO Carrinho
+===================================================== */
+@media (max-width: 600px) {
+
+    .cart-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .coupon {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .coupon input {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1024px) {
+  .product-grid {
+    padding: 20px;
+  }
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-80px);
+    }
+}
+
+/* animação */
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+/* MOBILE */
+
+@media(max-width:768px){
+
+    body{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        min-height:auto;
+    }
+
+}
+
+/* 📱 quando chegar em 720px → 2 colunas */
+@media (max-width: 720px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 📱 opcional: celular pequeno → 1 coluna */
+@media (max-width: 420px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 720px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 👈 como você queria */
+    }
+}
+
+@media (max-width: 420px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .faq-section{
+
+        padding: 30px 15px;
+        margin: 50px 15px;
+    }
+
+    .faq-section h2{
+
+        font-size: 26px;
+    }
+
+    .faq-question{
+
+        font-size: 15px;
+        padding: 18px;
+    }
+
+}
+
+/* ===================================================== */
+/* RESPONSIVO */
+/* ===================================================== */
+
+@media(max-width: 768px){
+
+    .product-admin-card{
+
+        flex-direction: column;
+    }
+
+    .product-admin-image{
+
+        width: 100%;
+        height: 220px;
+    }
+}
+
+/* RESPONSIVO */
+@media(max-width: 700px){
+
+    #productsList .item{
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    #productsList .item img{
+
+        width: 100%;
+        height: 220px;
+    }
+}
